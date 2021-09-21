@@ -20,13 +20,14 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnv_navbar"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="75dp"
             android:layout_alignParentBottom="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_navbar"/>
+            app:menu="@menu/menu_navbar"
+            android:background="@drawable/estilo_redondeado"/>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
