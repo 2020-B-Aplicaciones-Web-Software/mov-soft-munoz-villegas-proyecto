@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mi_ir_notas"
+        android:icon="@drawable/ic_notas"
+        android:title="Notas" />
+    <item
+        android:id="@+id/mi_ir_todo"
+        android:icon="@drawable/ic_todo"
+        android:title="To-Do" />
+    <item
+        android:id="@+id/mi_ir_temporizador"
+        android:icon="@drawable/ic_temporizador"
+        android:title="Temporizador" />
+</menu>

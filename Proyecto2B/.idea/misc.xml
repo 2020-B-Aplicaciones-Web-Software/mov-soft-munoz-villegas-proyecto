@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_temporizador.xml" value="0.2703125" />
+        <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_todo.xml" value="0.2703125" />
+        <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_contenedor_fragmentos.xml" value="0.536" />
       </map>
     </option>
   </component>
