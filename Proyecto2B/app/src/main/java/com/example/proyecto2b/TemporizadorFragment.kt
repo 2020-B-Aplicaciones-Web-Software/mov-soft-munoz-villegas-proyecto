@@ -7,8 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 
 class TemporizadorFragment : Fragment(R.layout.fragment_temporizador) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        childFragmentManager.setFragmentResultListener("valoresTemporizador",this){ key, bundle ->
+            childFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace<CuentraRegresivaFragment>(R.id.fl_tempContainer)
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

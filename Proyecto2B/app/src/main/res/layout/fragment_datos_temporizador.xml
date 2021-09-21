@@ -7,7 +7,7 @@
     tools:context=".DatosTemporizador">
 
     <EditText
-        android:id="@+id/editTextNumber7"
+        android:id="@+id/et_minutos_descanso"
         android:layout_width="74dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
@@ -20,16 +20,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <EditText
-        android:id="@+id/editTextNumber8"
+        android:id="@+id/et_segundos_descanso"
         android:layout_width="74dp"
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
         android:background="@drawable/estilo_redondeado"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber7"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber7"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumber7"
+        app:layout_constraintBottom_toBottomOf="@+id/et_minutos_descanso"
+        app:layout_constraintStart_toEndOf="@+id/et_minutos_descanso"
+        app:layout_constraintTop_toTopOf="@+id/et_minutos_descanso"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_play_temp"
+        android:id="@+id/btn_iniciar_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber9" />
+        app:layout_constraintTop_toBottomOf="@+id/et_iteraciones_pomodoro" />
 
     <TextView
         android:id="@+id/textView3"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/et_minutos_trabajo"
         android:layout_width="74dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
@@ -99,16 +99,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/et_segundos_trabajo"
         android:layout_width="74dp"
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
         android:background="@drawable/estilo_redondeado"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/et_minutos_trabajo"
+        app:layout_constraintStart_toEndOf="@+id/et_minutos_trabajo"
+        app:layout_constraintTop_toTopOf="@+id/et_minutos_trabajo"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -117,10 +117,10 @@
         android:layout_height="wrap_content"
         android:text=":"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber2"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumber" />
+        app:layout_constraintBottom_toBottomOf="@+id/et_minutos_trabajo"
+        app:layout_constraintEnd_toStartOf="@+id/et_segundos_trabajo"
+        app:layout_constraintStart_toEndOf="@+id/et_minutos_trabajo"
+        app:layout_constraintTop_toTopOf="@+id/et_minutos_trabajo" />
 
     <TextView
         android:id="@+id/textView10"
@@ -128,13 +128,13 @@
         android:layout_height="wrap_content"
         android:text=":"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber7"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber8"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber7"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumber7" />
+        app:layout_constraintBottom_toBottomOf="@+id/et_minutos_descanso"
+        app:layout_constraintEnd_toStartOf="@+id/et_segundos_descanso"
+        app:layout_constraintStart_toEndOf="@+id/et_minutos_descanso"
+        app:layout_constraintTop_toTopOf="@+id/et_minutos_descanso" />
 
     <EditText
-        android:id="@+id/editTextNumber9"
+        android:id="@+id/et_iteraciones_pomodoro"
         android:layout_width="214dp"
         android:layout_height="52dp"
         android:layout_marginStart="36dp"
