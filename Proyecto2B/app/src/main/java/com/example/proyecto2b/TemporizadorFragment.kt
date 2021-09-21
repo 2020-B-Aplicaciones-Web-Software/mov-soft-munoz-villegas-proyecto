@@ -15,7 +15,7 @@ class TemporizadorFragment : Fragment(R.layout.fragment_temporizador) {
         childFragmentManager.setFragmentResultListener("valoresTemporizador",this){ key, bundle ->
             childFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<CuentraRegresivaFragment>(R.id.fl_tempContainer)
+                replace<CuentraRegresivaFragment>(R.id.fl_tempContainer,args = bundle)
             }
         }
     }
