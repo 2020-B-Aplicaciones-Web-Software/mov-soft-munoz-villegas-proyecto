@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_categorias_nombre"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="5dp"
+        >
 
-        android:layout_width="295dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="68dp"
-        android:background="@drawable/estilo_redondeado_categorias"
-        android:gravity="center_vertical"
+        <TextView
+            android:id="@+id/tv_categorias_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/estilo_redondeado_categorias"
+            android:gravity="center_vertical"
+            android:text="      Matematica"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.387"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:text="      Matematica"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_colorCategoria"
+            android:layout_width="20dp"
+            android:layout_height="43dp"
+            android:background="@drawable/estilo_categoria_rojo" />
 
-    <TextView
-        android:id="@+id/tv_colorCategoria"
-        android:layout_width="20dp"
-        android:layout_height="43dp"
-        android:background="@drawable/estilo_categoria_rojo"
-        app:layout_constraintStart_toStartOf="@+id/tv_categorias_nombre"
-        app:layout_constraintTop_toTopOf="@+id/tv_categorias_nombre" />"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="46dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

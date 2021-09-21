@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/colores_nabvar.xml" value="0.2703125" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_redondeado.xml" value="0.2703125" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_redondeado_oscuro.xml" value="0.2703125" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
@@ -11,24 +12,12 @@
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_todo.xml" value="0.2703125" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_contenedor_fragmentos.xml" value="0.4" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_cuentra_regresiva.xml" value="0.25416666666666665" />
+        <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_datos_temporizador.xml" value="0.4" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_fragmento_lista_categorias.xml" value="0.25416666666666665" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_temporizador.xml" value="0.25416666666666665" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_to_do.xml" value="0.1" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_boton.xml" value="0.1875" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_categoria_amarillo.xml" value="0.2703125" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_categoria_azul.xml" value="0.2703125" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_categoria_rojo.xml" value="0.2703125" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_redondeado.xml" value="0.1875" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_redondeado_categorias.xml" value="0.2703125" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_redondeado_categoriasA.xml" value="0.11018518518518519" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_redondeado_oscuro.xml" value="0.1875" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.1875" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_contenedor_fragmentos.xml" value="0.17135416666666667" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_datos_temporizador.xml" value="0.17135416666666667" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_fragmento_lista_categorias.xml" value="0.17135416666666667" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_temporizador.xml" value="0.17135416666666667" />
-        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_categorias.xml" value="0.176" />
+        <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_categorias.xml" value="0.4742468415937804" />
       </map>
     </option>
   </component>
