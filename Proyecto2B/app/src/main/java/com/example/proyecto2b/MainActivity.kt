@@ -4,14 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.facebook.appevents.AppEventsLogger;
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.AuthCredential
@@ -50,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
 
                             }else{
+                                showAlert()
 
                             }
                         }
@@ -63,6 +62,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onError(error: FacebookException?) {
+                    showAlert()
 
                 }
             })
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-    fun showAlet(){
+    fun showAlert(){
         val builder=AlertDialog.Builder(this)
         builder.setTitle("Error")
         builder.setMessage("Se ha producido un error autenticando el usuario")
@@ -106,13 +106,13 @@ class MainActivity : AppCompatActivity() {
                             if (it.isSuccessful) {
 
                             } else {
-                                showAlet()
+                                showAlert()
                             }
                         }
 
                 }
             }catch (e:ApiException){
-                showAlet()
+                showAlert()
             }
             }
         }
