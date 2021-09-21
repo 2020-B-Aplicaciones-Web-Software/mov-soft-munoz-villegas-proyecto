@@ -24,7 +24,7 @@
         android:id="@+id/btn_play_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="48dp"
         android:backgroundTint="@color/verde"
         android:clickable="true"
         android:src="@drawable/ic_baseline_play_arrow_24"
@@ -35,8 +35,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
-        android:layout_width="371dp"
-        android:layout_height="483dp"
+        android:layout_width="377dp"
+        android:layout_height="466dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/estilo_redondeado_oscuro"
         app:layout_constraintBottom_toTopOf="@+id/btn_play_temp"

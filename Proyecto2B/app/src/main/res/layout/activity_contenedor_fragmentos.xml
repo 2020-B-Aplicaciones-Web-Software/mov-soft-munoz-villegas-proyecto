@@ -25,13 +25,15 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
+            app:itemHorizontalTranslationEnabled="false"
             android:background="@drawable/estilo_redondeado"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_navbar"
-            app:itemHorizontalTranslationEnabled="false"/>
+            app:itemIconTint="@color/colores_nabvar"
+            app:itemTextColor="@color/colores_nabvar"/>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
