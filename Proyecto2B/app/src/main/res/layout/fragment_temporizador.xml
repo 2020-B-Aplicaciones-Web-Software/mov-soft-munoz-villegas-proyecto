@@ -24,7 +24,7 @@
         android:id="@+id/btn_play_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/verde"
         android:clickable="true"
         android:src="@drawable/ic_baseline_play_arrow_24"
@@ -35,13 +35,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
-        android:layout_width="380dp"
-        android:layout_height="459dp"
+        android:layout_width="371dp"
+        android:layout_height="483dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/estilo_redondeado_oscuro"
-        app:layout_constraintBottom_toTopOf="@+id/btn_nueva_categoria"
+        app:layout_constraintBottom_toTopOf="@+id/btn_play_temp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
 

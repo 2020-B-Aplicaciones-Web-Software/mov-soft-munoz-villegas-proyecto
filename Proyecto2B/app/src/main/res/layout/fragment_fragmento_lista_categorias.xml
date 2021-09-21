@@ -24,7 +24,7 @@
         android:id="@+id/btn_nueva_categoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verde"
         android:clickable="true"
         android:src="@android:drawable/ic_input_add"
