@@ -1,83 +1,65 @@
 package com.example.proyecto2b
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
-import com.facebook.*
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
+import com.example.proyecto2b.Dto.FirestoreUsuarioDto
+
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.IdpResponse
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.FacebookAuthProvider
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
-    private val callbackManager= CallbackManager.Factory.create()
-    private val GOOGLE_INICIO=200
+
+
+    val CODIGO_INICIO_SESION = 102
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val LoginFacebook = findViewById<ImageView>(R.id.iv_loginFacebook)
-        val LoginGoogle = findViewById<ImageView>(R.id.iv_loginGoogle)
-        val boton = findViewById<Button>(R.id.button2)
-        boton.setOnClickListener {
-            val intent=Intent(
-                this,
-                ContenedorFragmentos::class.java
-            )
-            startActivity(intent)
+        val Login = findViewById<Button>(R.id.btn_login)
+
+
+        Login.setOnClickListener {
+            llamarLoginUsuario()
         }
 
-        LoginFacebook.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
-            LoginManager.getInstance().registerCallback(callbackManager,
-            object : FacebookCallback<LoginResult>{
-                override fun onSuccess(result: LoginResult?) {
-                    result?.let {
-                       val token:AccessToken=it.accessToken
-                        val credential:AuthCredential=FacebookAuthProvider.getCredential(token.token)
-                        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
-                            if(it.isSuccessful){
 
 
-                            }else{
-                                showAlert()
+    }
 
-                            }
-                        }
-                    }
+    fun llamarLoginUsuario() {
+        val providers = arrayListOf(
+            //Lista de los provedores
+            AuthUI.IdpConfig.EmailBuilder().build(),
+            AuthUI.IdpConfig.GoogleBuilder().build(),
 
+        )
+        startActivityForResult(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .setTosAndPrivacyPolicyUrls(
+                    "https://example.com/terms.html",
+                    "https://example.com/privacy.html"
+                ).setLogo(R.drawable.ic_logo)
+                .build(),
+            CODIGO_INICIO_SESION
 
-                }
+        )
 
-                override fun onCancel() {
-
-                }
-
-                override fun onError(error: FacebookException?) {
-                    showAlert()
-
-                }
-            })
-
-        }
-        LoginGoogle.setOnClickListener {
-            val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("98895353922-ie1hnr279nhkr10c4kdmo8j8c3k7dc1h.apps.googleusercontent.com")
-                .requestEmail()
-                .build()
-
-            val googleClient=GoogleSignIn.getClient(this,googleConf)
-            startActivityForResult(googleClient.signInIntent,GOOGLE_INICIO)
-
-        }
     }
     fun showAlert(){
         val builder=AlertDialog.Builder(this)
@@ -92,29 +74,106 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        callbackManager.onActivityResult(requestCode,resultCode,data)
+
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode==GOOGLE_INICIO) {
-            try {
 
-                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-                val account = task.getResult(ApiException::class.java)
-                if (account != null) {
-                    val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-                    FirebaseAuth.getInstance().signInWithCredential(credential)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
+        when (requestCode) {
+            CODIGO_INICIO_SESION -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    val usuario: IdpResponse? = IdpResponse.fromResultIntent(data)
+                    if (usuario != null) {
+                        if (usuario.isNewUser == true) {
+                            Log.i("firebase-login", "Nuevo Usuario")
+                            registrarUsuarioPorPrimeraVez(usuario)
 
-                            } else {
-                                showAlert()
-                            }
+                        } else {
+                            setearUsuarioFirebase()
+                            Log.i("firebase-login", "Usuario Antiguo")
                         }
-
+                    }
+                } else {
+                    Log.i("firebase-login", "El usuario cancelo")
                 }
-            }catch (e:ApiException){
-                showAlert()
             }
+
+        }
+
+        }
+    fun registrarUsuarioPorPrimeraVez(usuario: IdpResponse) {
+        val usuarioLogeado = FirebaseAuth
+            .getInstance()
+            .getCurrentUser()
+        if (usuario.email != null && usuarioLogeado != null) {
+            // roles : ["usuario", "admin"]
+            // uid
+
+            val db = Firebase.firestore // obtenemos referencia
+            val rolesUsuario = arrayListOf("usuario") // creamos el arreglo de permisos
+            val nuevoUsuario = hashMapOf<String, Any>( // { roles:... uid:...}
+                "roles" to rolesUsuario,
+                "uid" to usuarioLogeado.uid,
+                "email" to usuario.email.toString()
+            )
+            val identificadorUsuario = usuario.email
+            db.collection("usuario")
+                // Forma a) Firestore crea identificador
+                //.add(nuevoUsuario)
+                // Forma b) Yo seteo el identificador
+                .document(identificadorUsuario.toString())
+                .set(nuevoUsuario)
+                .addOnSuccessListener {
+                    Log.i("firebase-firestore", "Se creo el usuario")
+                    setearUsuarioFirebase()
+                }
+                .addOnFailureListener {
+                    Log.i("firebase-firestore", "Fallo")
+                }
+        }
+    }
+    fun abrirActividad(
+        clase: Class<*>
+    ){
+        val intentExplicito= Intent(
+            this,
+            clase
+        )
+        startActivity(intentExplicito)
+    }
+
+    fun setearUsuarioFirebase() {
+        val instanciaAuth = FirebaseAuth.getInstance()
+        val usuarioLocal = instanciaAuth.currentUser
+        if (usuarioLocal != null) {
+            if (usuarioLocal.email != null) {
+                //bucar en el firestore el usario y traerlo con todos los datos
+                val db= Firebase.firestore
+                val referencia=db
+                    .collection("usuario")
+                    .document(usuarioLocal.email.toString())
+                referencia
+                    .get()
+                    .addOnSuccessListener {
+                        val usuarioCargado=it.toObject(FirestoreUsuarioDto::class.java)
+                        if(usuarioCargado !=null) {
+                            AuthUsuario.usuario = UsuarioFirebase(
+                                usuarioCargado.uid,
+                                usuarioCargado.email,
+                                usuarioCargado.roles,
+
+                                )
+                            abrirActividad(ContenedorFragmentos::class.java)
+
+
+                        }
+                        Log.i("firebase-firestore", "Usuario Cargado")
+
+                    }
+                    .addOnFailureListener{
+                        Log.i("firebase-firestore", "Fallo cargar usuario")
+
+                    }
             }
         }
+    }
 
 }
