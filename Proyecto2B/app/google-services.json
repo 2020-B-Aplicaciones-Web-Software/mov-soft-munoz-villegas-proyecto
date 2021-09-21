@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "98895353922",
+    "project_id": "mov-soft-munoz-villegas",
+    "storage_bucket": "mov-soft-munoz-villegas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98895353922:android:e6caaae329ac012a3cb5db",
+        "android_client_info": {
+          "package_name": "com.example.proyecto2b"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98895353922-ie1hnr279nhkr10c4kdmo8j8c3k7dc1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-WEMGD3Ay8u_S8AgtCo5O1cGNRfVldro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98895353922-ie1hnr279nhkr10c4kdmo8j8c3k7dc1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
