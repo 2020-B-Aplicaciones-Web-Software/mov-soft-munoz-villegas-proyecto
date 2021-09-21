@@ -12,5 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val LoginFacebook = findViewById<ImageView>(R.id.iv_loginFacebook)
         val LoginGoogle = findViewById<ImageView>(R.id.iv_loginGoogle)
+        LoginFacebook.setOnClickListener {
+
+        }
     }
 }
