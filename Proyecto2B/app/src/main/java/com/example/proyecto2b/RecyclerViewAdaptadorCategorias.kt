@@ -3,14 +3,13 @@ package com.example.proyecto2b
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyecto2b.Dto.FirestoreCategoriaDto
 
 class RecyclerViewAdaptadorCategorias (
     private val contexto: FragmentoListaCategorias,
-    private val listaCategoria: List<String>,
+    private val listaCategoria: List<FirestoreCategoriaDto>,
     private val recyclerView: RecyclerView,
 ):RecyclerView.Adapter<RecyclerViewAdaptadorCategorias.MyViewHolder>(){
     inner  class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -35,7 +34,7 @@ class RecyclerViewAdaptadorCategorias (
     //Setea los datos de cada iteracion del arreglo
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val categoria=listaCategoria[position]
-        holder.nombreCategoria.text="      "+categoria
+        holder.nombreCategoria.text="      "+categoria.nombre
         holder.nombreCategoria.setOnClickListener(View.OnClickListener
         {  })
         if((position)%3==0){

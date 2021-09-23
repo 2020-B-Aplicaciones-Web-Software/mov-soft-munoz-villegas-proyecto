@@ -1,49 +1,76 @@
 package com.example.proyecto2b
 
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyecto2b.Dto.FirestoreCategoriaDto
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_categorias) {
+    var listaCategorias= arrayListOf<FirestoreCategoriaDto>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val viewRoot = inflater.inflate(R.layout.fragment_fragmento_lista_categorias,container,false)
-        val categorias: List<String> = listOf("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+
+        cargarCategorias(viewRoot)
+
+        return viewRoot
+    }
+    fun cargarCategorias(viewRoot: View){
+        listaCategorias.clear()
+
+        val db= Firebase.firestore
+
+        val referencia = db.collection("usuario").document(AuthUsuario.usuario!!.email)
+            .collection("categoria")
+        referencia
+            .get()
+            .addOnSuccessListener { categorias ->
+                for (categoria in categorias) {
+
+                    if (categoria != null) {
+                        listaCategorias.add(
+                            FirestoreCategoriaDto(categoria.id,
+                                categoria["nombre"].toString()
+                            )
+                        )
+
+                    }
+
+                }
+                cargarInterfaz(viewRoot)
+            }
+    }
+    fun cargarInterfaz(viewRoot: View) {
+
+
         val recyclerCategoria=viewRoot.findViewById<RecyclerView>(R.id.rv_categorias)
         val agregarCategoria=viewRoot.findViewById<FloatingActionButton>(R.id.btn_nueva_categoria)
 
 
         iniciarRecyclerView(
-            categorias,
+            listaCategorias,
             this,
             recyclerCategoria
         )
         agregarCategoria.setOnClickListener {
-            abrirDialogoCategoria()
+            abrirDialogoCategoria(viewRoot)
 
         }
 
-        return viewRoot
     }
-    fun abrirDialogoCategoria(){
+    fun abrirDialogoCategoria(viewRoot: View){
         val dialogoView=LayoutInflater.from(this.context).inflate(R.layout.crear_categorias,null)
         val builder=AlertDialog.Builder(this.requireContext())
             .setView(dialogoView)
@@ -60,6 +87,8 @@ class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_cate
             if(valorNombre.length>=3&&valorNombre.length<=25){
                 registrarCetegoria(valorNombre)
                 categoriaDialogo.dismiss()
+                cargarCategorias(viewRoot)
+
             }else{
                 dialogoView.findViewById<TextView>(R.id.tv_error_crear_Categoria).setText("La categoría debe tener entre 3 a 25 caracteres.")
 
@@ -71,10 +100,10 @@ class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_cate
     fun registrarCetegoria(nombre:String){
         val nuevaCategoria = hashMapOf<String, Any>(
             "nombre" to nombre
-
         )
         val db = Firebase.firestore
-        val referencia = db.collection("categoria")
+        val referencia = db.collection("usuario").document(AuthUsuario.usuario!!.email)
+            .collection("categoria")
 
         referencia
             .add(nuevaCategoria)
@@ -82,8 +111,9 @@ class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_cate
 
             }.addOnFailureListener {}
     }
+
     fun iniciarRecyclerView(
-        lista: List<String>,
+        lista: List<FirestoreCategoriaDto>,
         actividad: FragmentoListaCategorias,
         recyclerView: RecyclerView
     ) {
