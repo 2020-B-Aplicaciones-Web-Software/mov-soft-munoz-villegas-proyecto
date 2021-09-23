@@ -113,7 +113,7 @@ class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_cate
     }
 
     fun iniciarRecyclerView(
-        lista: List<FirestoreCategoriaDto>,
+        lista: ArrayList<FirestoreCategoriaDto>,
         actividad: FragmentoListaCategorias,
         recyclerView: RecyclerView
     ) {

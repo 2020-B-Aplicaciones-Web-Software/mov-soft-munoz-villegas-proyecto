@@ -5,7 +5,7 @@ import android.os.Parcelable
 
 class FirestoreCategoriaDto (
     val uid:String?="",
-    val nombre:String?=""
+    var nombre:String?=""
 ):Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString(),
