@@ -18,6 +18,12 @@ class TemporizadorFragment : Fragment(R.layout.fragment_temporizador) {
                 replace<CuentraRegresivaFragment>(R.id.fl_tempContainer,args = bundle)
             }
         }
+        childFragmentManager.setFragmentResultListener("retorno",this){ key, bundle ->
+            childFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace<DatosTemporizador>(R.id.fl_tempContainer)
+            }
+        }
     }
 
     override fun onCreateView(

@@ -24,14 +24,12 @@ class DatosTemporizador : Fragment(R.layout.fragment_datos_temporizador) {
         val etMinutosDescanso = root.findViewById<EditText>(R.id.et_minutos_descanso)
         val etSegundosTrabajo = root.findViewById<EditText>(R.id.et_segundos_trabajo)
         val etSegundosDescanso = root.findViewById<EditText>(R.id.et_segundos_descanso)
-        val etNumIteraciones = root.findViewById<EditText>(R.id.et_iteraciones_pomodoro)
         val btnIniciarTemp = root.findViewById<FloatingActionButton>(R.id.btn_iniciar_temp)
         btnIniciarTemp.setOnClickListener {
             val arregloValores = arrayOf(etMinutosTrabajo.text.toString(),
                 etMinutosDescanso.text.toString(),
                 etSegundosTrabajo.text.toString(),
-                etSegundosDescanso.text.toString(),
-                etNumIteraciones.text.toString()
+                etSegundosDescanso.text.toString()
                 )
             val resultado:Boolean = arregloValores
                 .all {
@@ -43,8 +41,7 @@ class DatosTemporizador : Fragment(R.layout.fragment_datos_temporizador) {
                     "minutosTrabajo" to etMinutosTrabajo.text.toString().toInt(),
                     "segundosTrabajo" to etSegundosTrabajo.text.toString().toInt(),
                     "minutosDescanso" to etMinutosDescanso.text.toString().toInt(),
-                    "segundosDescanso" to etSegundosDescanso.text.toString().toInt(),
-                    "numIteraciones" to etNumIteraciones.text.toString().toInt()
+                    "segundosDescanso" to etSegundosDescanso.text.toString().toInt()
                 )
                 setFragmentResult("valoresTemporizador", paqueteDatos)
             }
