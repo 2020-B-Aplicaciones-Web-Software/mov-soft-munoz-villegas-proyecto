@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto2b.Dto.FirestoreCategoriaDto
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -34,6 +35,8 @@ class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_cate
 
         val referencia = db.collection("usuario").document(AuthUsuario.usuario!!.email)
             .collection("categoria")
+            .orderBy("nombre", Query.Direction.DESCENDING)
+
         referencia
             .get()
             .addOnSuccessListener { categorias ->
