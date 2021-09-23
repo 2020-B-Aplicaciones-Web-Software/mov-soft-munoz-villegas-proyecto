@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.ImageView
+
 import androidx.appcompat.app.AlertDialog
 import com.example.proyecto2b.Dto.FirestoreUsuarioDto
 
