@@ -28,7 +28,7 @@ class CuentraRegresivaFragment : Fragment(R.layout.fragment_cuentra_regresiva) {
             override fun onTick(millisUntilFinished: Long) {
                 val minutosRestantes = (millisUntilFinished/(60*1000)).toInt()
                 val segundosRestantes = (millisUntilFinished/1000).mod(60)
-                tvMarcador.setText("${minutosRestantes}:${segundosRestantes}")
+                tvMarcador.setText("${String.format("%02d",minutosRestantes)}:${String.format("%02d",segundosRestantes)}")
             }
 
             override fun onFinish() {
