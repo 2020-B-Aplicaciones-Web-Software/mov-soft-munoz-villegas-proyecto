@@ -1,13 +1,14 @@
 package com.example.proyecto2b
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto2b.Dto.FirestoreCategoriaDto
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -16,6 +17,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_categorias) {
+    val CODIGO_RESPUESTA_INTENT_EXPLICITO=401
     var listaCategorias= arrayListOf<FirestoreCategoriaDto>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -129,5 +131,15 @@ class FragmentoListaCategorias : Fragment(R.layout.fragment_fragmento_lista_cate
         recyclerView.itemAnimator=androidx.recyclerview.widget.DefaultItemAnimator()
         recyclerView.layoutManager=androidx.recyclerview.widget.LinearLayoutManager(actividad.context)
         adaptador.notifyDataSetChanged()
+    }
+
+    fun abrirTarjetas(
+        categoria:FirestoreCategoriaDto
+    ) {
+
+        val intentExplicito = Intent(activity,TarjetasActividad::class.java)
+
+        intentExplicito.putExtra("categoria",categoria)
+        startActivityForResult(intentExplicito,CODIGO_RESPUESTA_INTENT_EXPLICITO)
     }
 }
