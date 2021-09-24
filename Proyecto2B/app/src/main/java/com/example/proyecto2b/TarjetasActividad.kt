@@ -4,8 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto2b.Dto.FirestoreCategoriaDto
 import com.example.proyecto2b.Dto.FirestoreTarjetaDto
@@ -45,10 +49,26 @@ class TarjetasActividad : AppCompatActivity() {
 
         }
         botonAgregar.setOnClickListener {
+            abrirDialogoTarjeta()
 
         }
 
     }
+
+    private fun abrirDialogoTarjeta() {
+        val dialogoView= LayoutInflater.from(this).inflate(R.layout.crear_tajetas,null)
+        val builder= AlertDialog.Builder(this)
+            .setView(dialogoView)
+        val categoriaDialogo=builder.show()
+        val botonAceptar=dialogoView.findViewById<Button>(R.id.btn_crearTajeta_dialogo)
+        val textoDescripcion=dialogoView.findViewById<EditText>(R.id.et_titulo_tarjeta_dialogo2)
+        val textoTitulo=dialogoView.findViewById<EditText>(R.id.et_titulo_tarjeta_dialogo)
+
+        botonAceptar.setOnClickListener {
+            categoriaDialogo.dismiss()
+        }
+    }
+
     fun abrirActividad(
         clase: Class<*>
     ){
