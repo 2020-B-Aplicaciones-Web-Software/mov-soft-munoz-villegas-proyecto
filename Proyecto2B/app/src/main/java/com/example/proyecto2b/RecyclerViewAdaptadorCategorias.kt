@@ -169,7 +169,9 @@ class RecyclerViewAdaptadorCategorias (
         val categoria=listaCategoria[position]
         holder.nombreCategoria.text="      "+categoria.nombre
         holder.nombreCategoria.setOnClickListener(View.OnClickListener
-        {  })
+        {
+            contexto.abrirTarjetas(categoria)
+        })
         if((position)%3==0){
             holder.categoriaColor.setBackgroundResource(R.drawable.estilo_categoria_rojo)
 

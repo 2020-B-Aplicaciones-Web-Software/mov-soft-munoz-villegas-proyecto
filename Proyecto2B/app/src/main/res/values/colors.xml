@@ -12,4 +12,7 @@
     <color name="azul">#3C4EB3</color>
     <color name="rojo">#ED3224</color>
     <color name="verdeFuerte">#6ED55E</color>
+    <color name="plomo">#EFF0F6</color>
+    <color name="amarilloTarjeta">#FFFF00</color>
+    <color name="azulTarjeta">#0CB7F2</color>
 </resources>
