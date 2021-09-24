@@ -181,10 +181,6 @@ class RecyclerViewAdaptadorCategorias (
 
         }
 
-
-
-
-
     }
     //definimos el layout a usar
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
