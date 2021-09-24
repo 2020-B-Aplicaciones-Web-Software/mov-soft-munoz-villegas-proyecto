@@ -25,6 +25,25 @@
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_to_do.xml" value="0.264" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/layout_tareas.xml" value="0.4" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_categorias.xml" value="0.4742468415937804" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_boton.xml" value="0.1875" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/estilo_redondeado.xml" value="0.1875" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_agregar.xml" value="0.1875" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_editar.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_eliminar.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_ojoabierto.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_regresar.xml" value="0.1875" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_temporizador.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/activity_tarjetas_actividad.xml" value="0.2" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/crear_categorias.xml" value="0.536" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/crear_tajetas.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_datos_temporizador.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_fragmento_lista_categorias.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_categorias.xml" value="0.264" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_tarjetas.xml" value="0.4" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/menu/menu_categorias.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/menu/menu_navbar.xml" value="0.264" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16510416666666666" />
       </map>
     </option>
   </component>
