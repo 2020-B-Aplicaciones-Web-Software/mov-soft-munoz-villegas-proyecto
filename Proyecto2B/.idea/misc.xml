@@ -24,10 +24,13 @@
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_categorias.xml" value="0.4742468415937804" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_tarjetas.xml" value="0.13020833333333334" />
         <entry key="..\:/Repositorios/Publico/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_todo.xml" value="0.536" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/drawable/ic_eliminar_tarea.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/crear_categorias.xml" value="0.536" />
         <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_datos_temporizador.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_fragmento_lista_categorias.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/fragment_to_do.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_categorias.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/gueva/Documents/github/mov-soft-munoz-villegas-proyecto/Proyecto2B/app/src/main/res/layout/recycler_todo.xml" value="0.18958333333333333" />
       </map>
     </option>
   </component>

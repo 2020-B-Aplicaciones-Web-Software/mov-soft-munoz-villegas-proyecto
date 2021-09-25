@@ -1,15 +1,13 @@
 package com.example.proyecto2b
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto2b.Dto.FirestoreTarea
-import com.example.proyecto2b.Dto.FirestoreUsuarioDto
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -43,6 +41,7 @@ class ToDoFragment : Fragment(R.layout.fragment_to_do) {
                 if(arregloTarea == null){
                     arregloTarea = arrayListOf<FirestoreTarea>()
                 }
+
                 val adaptador = iniciarRecyclerView(arregloTarea,recyclerTareas)
                 botonNuevo.setOnClickListener {
                     val dialogo = DialogoTarea(
@@ -51,6 +50,22 @@ class ToDoFragment : Fragment(R.layout.fragment_to_do) {
                     )
                     dialogo.show(childFragmentManager,"nuevaTarea")
                 }
+                //--esto es de la eliminacion
+                val desplizamiento=object:DeslizarParaEliminarTarea(this.requireContext()){
+                    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                        when(direction){
+                            ItemTouchHelper.LEFT->{
+                                adaptador.eliminarFireStore(arregloTarea[viewHolder.adapterPosition].uid)
+
+                            }
+                        }
+                    }
+                }
+                val touchHelper=ItemTouchHelper(desplizamiento)
+                touchHelper.attachToRecyclerView(recyclerTareas)
+                //--------------------
+
+
                 adaptador.setOnClickListener(
                     object :View.OnClickListener{
                         override fun onClick(v: View) {

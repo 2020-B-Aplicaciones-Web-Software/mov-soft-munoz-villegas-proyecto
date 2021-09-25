@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto2b.Dto.FirestoreTarea
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -31,6 +33,7 @@ RecyclerView.Adapter<AdaptadorToDo.TareaViewHolder>(), View.OnClickListener{
             textoTitulo.setTextColor(recursoRojo)
             textoFecha.setTextColor(recursoRojo)
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TareaViewHolder {
@@ -65,14 +68,30 @@ RecyclerView.Adapter<AdaptadorToDo.TareaViewHolder>(), View.OnClickListener{
         escuchador?.onClick(v)
     }
 
+    fun eliminarFireStore(uid:String) {
+        val db= Firebase.firestore
+
+        val referencia = db.collection("usuario").document(AuthUsuario.usuario!!.email)
+            .collection("tarea").document(uid)
+        referencia.delete()
+            .addOnSuccessListener {
+                removerElemento(uid)
+            }
+    }
+
+
     fun removerElemento(uid:String){
         val elemento = dataSet.filter {
             return@filter it.uid.equals(uid)
         }
         if(elemento.isNotEmpty()){
             dataSet.remove(elemento[0])
+            notifyDataSetChanged()
         }
+
+
     }
+
 
     fun anadirElemento(element:FirestoreTarea){
         dataSet.add(element)
