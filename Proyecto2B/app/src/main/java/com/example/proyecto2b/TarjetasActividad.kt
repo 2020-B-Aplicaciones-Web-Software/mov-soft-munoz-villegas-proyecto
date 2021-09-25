@@ -36,7 +36,7 @@ class TarjetasActividad : AppCompatActivity() {
 
         val referencia = db.collection("usuario").document(AuthUsuario.usuario!!.email)
             .collection("categoria").document(categoria.uid!!)
-            .collection("tajeta")
+            .collection("tarjeta")
             .orderBy("titulo", Query.Direction.DESCENDING)
 
         referencia
@@ -64,11 +64,11 @@ class TarjetasActividad : AppCompatActivity() {
     fun cargarInterfaz(){
 
         findViewById<TextView>(R.id.tv_tituloCategoria).setText(categoria?.nombre)
-        Log.i("s","${categoria!!.nombre } ${categoria!!.uid }")
+
         val recyclerViewTarjetas=findViewById<RecyclerView>(
             R.id.rv_tarjetas
         )
-        
+
 
         iniciarRecyclerView(listaTarjetas,this,recyclerViewTarjetas)
         val botonRegresar=findViewById<ImageView>(R.id.btn_regresarTarjetas)
@@ -93,8 +93,6 @@ class TarjetasActividad : AppCompatActivity() {
         val tituloTarjeta=dialogoView.findViewById<TextInputEditText>(R.id.til_nombre_tarjeta_dialogo)
         val descripcionTarjeta=dialogoView.findViewById<TextInputEditText>(R.id.til_descripcion_tarjeta_dialogo)
 
-
-
         botonAceptar.setOnClickListener {
             if(tituloTarjeta.text.toString().length<=130
                 && tituloTarjeta.text.toString().length>=5
@@ -118,7 +116,7 @@ class TarjetasActividad : AppCompatActivity() {
         val db = Firebase.firestore
         val referencia = db.collection("usuario").document(AuthUsuario.usuario!!.email)
             .collection("categoria").document(categoria.uid!!)
-            .collection("tajeta")
+            .collection("tarjeta")
 
         referencia
             .add(nuevaTarjeta)
