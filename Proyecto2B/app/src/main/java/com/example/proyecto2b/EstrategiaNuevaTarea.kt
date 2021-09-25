@@ -17,6 +17,7 @@ class EstrategiaNuevaTarea:EstrategiaPersistencia {
             .collection("usuario").document(AuthUsuario.usuario!!.email)
             .collection("tarea")
         referencia.add(tarea).addOnSuccessListener {
+            tarea.uid = it.id
             adapter.dataSet.add(tarea)
             adapter.notifyDataSetChanged()
             fragmento.dismiss()

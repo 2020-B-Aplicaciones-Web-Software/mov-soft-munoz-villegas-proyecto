@@ -51,11 +51,22 @@ class ToDoFragment : Fragment(R.layout.fragment_to_do) {
                     )
                     dialogo.show(childFragmentManager,"nuevaTarea")
                 }
+                adaptador.setOnClickListener(
+                    object :View.OnClickListener{
+                        override fun onClick(v: View) {
+                            val elemento = recyclerTareas.getChildAdapterPosition(v)
+                            DialogoTarea(arregloTarea.get(elemento)
+                                ,EstrategiaAntiguaTarea(),
+                                adaptador).show(childFragmentManager,"edicionTarea")
+                        }
+
+                    }
+                )
             }
     }
 
     fun iniciarRecyclerView(listaTareas:ArrayList<FirestoreTarea>, recycler:RecyclerView):AdaptadorToDo{
-        val adaptador = AdaptadorToDo(listaTareas)
+        val adaptador = AdaptadorToDo(listaTareas,childFragmentManager)
         recycler.adapter = adaptador
         recycler.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
         recycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)

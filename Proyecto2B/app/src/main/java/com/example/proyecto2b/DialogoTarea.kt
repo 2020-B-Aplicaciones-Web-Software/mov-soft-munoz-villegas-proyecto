@@ -57,7 +57,8 @@ class DialogoTarea(
                     FirestoreTarea(
                         tituloTarea = titulo,
                         fechaEntrega = formato.parse(fecha),
-                        intervaloRecordatorio = intervalo.toInt()
+                        intervaloRecordatorio = intervalo.toInt(),
+                        uid = if(tarea!=null) tarea.uid else ""
                     ),
                     adaptador,
                     this
