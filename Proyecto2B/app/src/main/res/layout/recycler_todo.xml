@@ -16,7 +16,6 @@
             android:id="@+id/tv_titulo_tarea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="200dp"
             android:text="Deber Móviles"
             android:textColor="@color/black"
             android:textStyle="bold" />
@@ -26,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="27/07"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textColor="@color/black"
             android:textStyle="bold" />
 

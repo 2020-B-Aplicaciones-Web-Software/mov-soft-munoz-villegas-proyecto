@@ -6,5 +6,5 @@ data class FirestoreTarea(
     val tituloTarea:String = "",
     val fechaEntrega:Date? = null,
     val intervaloRecordatorio:Int? = null,
-    val uid:String = ""
+    var uid:String = ""
 )

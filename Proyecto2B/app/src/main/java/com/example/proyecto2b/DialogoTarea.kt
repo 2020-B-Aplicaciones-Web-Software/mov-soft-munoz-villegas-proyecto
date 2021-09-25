@@ -12,12 +12,16 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import com.example.proyecto2b.Dto.FirestoreTarea
+import java.text.SimpleDateFormat
 import java.util.*
 
 
-class DialogoTarea:DialogFragment() {
-    lateinit var botonAñadir:Button
-    lateinit var textoTitulo:TextView
+class DialogoTarea(
+    val tarea:FirestoreTarea? = null,
+    val algoritmo:EstrategiaPersistencia,
+    val adaptador:AdaptadorToDo
+):DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,12 +29,42 @@ class DialogoTarea:DialogFragment() {
     ): View? {
         val view = inflater.inflate(R.layout.layout_tareas,container,false)
         val textoFecha = view.findViewById<EditText>(R.id.et_fecha_entrega)
-        textoFecha.setOnClickListener {
-            DatePickerFragment(textoFecha).show(
-                childFragmentManager, "escogerNuevaFecha"
-            )
+        val botonAñadir = view.findViewById<Button>(R.id.btn_anadir_tarea)
+        val textoTitulo = view.findViewById<TextView>(R.id.tv_titulo_dialogo)
+        val etTitulo = view.findViewById<EditText>(R.id.et_titulo_tarea)
+        val etIntervalo = view.findViewById<EditText>(R.id.et_intervalo_recordatorio)
+        val formato = SimpleDateFormat("dd/mm/yyyy")
+        if(tarea != null){
+            textoTitulo.setText("Editar Tarea")
+            etTitulo.setText(tarea.tituloTarea!!)
+            textoFecha.setText(formato.format(tarea.fechaEntrega!!))
+            etIntervalo.setText(tarea.intervaloRecordatorio!!.toString())
+            botonAñadir.setText("Editar")
         }
-        botonAñadir = view.findViewById(R.id.btn_anadir_tarea)
+        textoFecha.setOnClickListener {
+            DatePickerFragment(textoFecha)
+                .show(
+                    childFragmentManager, "escogerNuevaFecha"
+                )
+        }
+
+        botonAñadir.setOnClickListener {
+            val titulo = etTitulo.text.toString()
+            val fecha = textoFecha.text.toString()
+            val intervalo = etIntervalo.text.toString()
+            if((!titulo.equals("")) && (!fecha.equals("")) && (!intervalo.equals(""))){
+                algoritmo.guardarEnFirestore(
+                    FirestoreTarea(
+                        tituloTarea = titulo,
+                        fechaEntrega = SimpleDateFormat("dd/mm/yyyy").parse(fecha),
+                        intervaloRecordatorio = intervalo.toInt()
+                    ),
+                    adaptador,
+                    this
+                )
+            }
+        }
         return view
     }
+
 }

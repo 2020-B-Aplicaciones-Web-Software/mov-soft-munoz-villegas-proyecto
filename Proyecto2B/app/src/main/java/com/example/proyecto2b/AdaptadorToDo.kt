@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class AdaptadorToDo(private val dataSet:ArrayList<FirestoreTarea>):
+class AdaptadorToDo(val dataSet:ArrayList<FirestoreTarea>):
 RecyclerView.Adapter<AdaptadorToDo.TareaViewHolder>(){
     inner class TareaViewHolder(view:View) : RecyclerView.ViewHolder(view){
         val textoTitulo:TextView

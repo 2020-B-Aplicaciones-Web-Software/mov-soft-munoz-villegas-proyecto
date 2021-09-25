@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import java.text.SimpleDateFormat
 import java.util.*
 
 class DatePickerFragment(val texto:TextView): DialogFragment(), DatePickerDialog.OnDateSetListener {
@@ -17,12 +16,11 @@ class DatePickerFragment(val texto:TextView): DialogFragment(), DatePickerDialog
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
-
         // Create a new instance of DatePickerDialog and return it
         return DatePickerDialog(activity as Context,R.style.my_dialog_theme, this, year, month, day)
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-        texto.setText("${day}/${month+1}/${year}")
+        texto.setText("${String.format("%02d",day)}/${String.format("%02d",month+1)}/${year}")
     }
 }
