@@ -33,7 +33,7 @@ class DialogoTarea(
         val textoTitulo = view.findViewById<TextView>(R.id.tv_titulo_dialogo)
         val etTitulo = view.findViewById<EditText>(R.id.et_titulo_tarea)
         val etIntervalo = view.findViewById<EditText>(R.id.et_intervalo_recordatorio)
-        val formato = SimpleDateFormat("dd/mm/yyyy")
+        val formato = SimpleDateFormat("dd/MM/yyyy")
         if(tarea != null){
             textoTitulo.setText("Editar Tarea")
             etTitulo.setText(tarea.tituloTarea!!)
@@ -56,7 +56,7 @@ class DialogoTarea(
                 algoritmo.guardarEnFirestore(
                     FirestoreTarea(
                         tituloTarea = titulo,
-                        fechaEntrega = SimpleDateFormat("dd/mm/yyyy").parse(fecha),
+                        fechaEntrega = formato.parse(fecha),
                         intervaloRecordatorio = intervalo.toInt()
                     ),
                     adaptador,

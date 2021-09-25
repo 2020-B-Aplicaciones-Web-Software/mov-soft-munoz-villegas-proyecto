@@ -34,7 +34,7 @@ RecyclerView.Adapter<AdaptadorToDo.TareaViewHolder>(){
 
     override fun onBindViewHolder(holder: TareaViewHolder, position: Int) {
         //259200000 es el intervalo EPOCH entre tres dias
-        val formato = SimpleDateFormat("dd/mm")
+        val formato = SimpleDateFormat("dd/MM")
         val fechaActual = Calendar.getInstance().time
         val data = dataSet.get(position)
         if(data.fechaEntrega != null){

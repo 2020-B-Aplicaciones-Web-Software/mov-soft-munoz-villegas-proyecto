@@ -33,7 +33,7 @@ class ToDoFragment : Fragment(R.layout.fragment_to_do) {
         val referencia = db
             .collection("usuario").document(AuthUsuario.usuario!!.email)
             .collection("tarea")
-        referencia.get()
+        referencia.orderBy("fechaEntrega").get()
             .addOnSuccessListener {
                 var arregloTarea = ArrayList(it.map {
                     var tarea = it.toObject<FirestoreTarea>()
