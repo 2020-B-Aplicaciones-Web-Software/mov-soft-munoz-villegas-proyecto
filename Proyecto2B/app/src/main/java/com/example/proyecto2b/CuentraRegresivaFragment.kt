@@ -14,6 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CuentraRegresivaFragment : Fragment(R.layout.fragment_cuentra_regresiva) {
     var estaContando = false
+    var debeFinalizar = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +42,7 @@ class CuentraRegresivaFragment : Fragment(R.layout.fragment_cuentra_regresiva) {
         }
         val botonRegresar = view.findViewById<ImageButton>(R.id.btn_eliminar_temp)
         botonRegresar.setOnClickListener{
+            debeFinalizar = true
             setFragmentResult("retorno", bundleOf())
         }
     }
@@ -54,47 +56,63 @@ class CuentraRegresivaFragment : Fragment(R.layout.fragment_cuentra_regresiva) {
         tvTrabajo.setPadding(25,15,25,15)
         object : CountDownTimer(tiempoDeTrabajo * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                estaContando = true
-                val minutosRestantes = (millisUntilFinished / (60 * 1000)).toInt()
-                val segundosRestantes = (millisUntilFinished / 1000).mod(60)
-                tvMarcador.setText(
-                    "${
-                        String.format(
-                            "%02d",
-                            minutosRestantes
-                        )
-                    }:${String.format("%02d", segundosRestantes)}"
-                )
+                if (debeFinalizar) {
+                    this.cancel()
+                } else {
+                    estaContando = true
+                    val minutosRestantes = (millisUntilFinished / (60 * 1000)).toInt()
+                    val segundosRestantes = (millisUntilFinished / 1000).mod(60)
+                    tvMarcador.setText(
+                        "${
+                            String.format(
+                                "%02d",
+                                minutosRestantes
+                            )
+                        }:${String.format("%02d", segundosRestantes)}"
+                    )
+                }
             }
 
             override fun onFinish() {
-                tvTrabajo.setTextColor(resources.getColor(R.color.black, null))
-                tvTrabajo.setBackgroundResource(R.drawable.estilo_tv_background_white)
-                tvDescanso.setTextColor(resources.getColor(R.color.white,null))
-                tvDescanso.setBackgroundResource(R.drawable.estilo_tv_background)
-                tvDescanso.setPadding(25,15,25,15)
-                object: CountDownTimer(tiempoDeDescanso*1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        estaContando = true
-                        val minutosRestantes = (millisUntilFinished/(60*1000)).toInt()
-                        val segundosRestantes = (millisUntilFinished/1000).mod(60)
-                        tvMarcador.setText(
-                                "${
-                                    String.format(
-                                        "%02d",
-                                        minutosRestantes
-                                    )
-                                }:${String.format("%02d", segundosRestantes)}"
-                            )
-                    }
+                if (debeFinalizar) {
+                    this.cancel()
+                } else {
+                    tvTrabajo.setTextColor(resources.getColor(R.color.black, null))
+                    tvTrabajo.setBackgroundResource(R.drawable.estilo_tv_background_white)
+                    tvDescanso.setTextColor(resources.getColor(R.color.white, null))
+                    tvDescanso.setBackgroundResource(R.drawable.estilo_tv_background)
+                    tvDescanso.setPadding(25, 15, 25, 15)
+                    object : CountDownTimer(tiempoDeDescanso * 1000, 1000) {
+                        override fun onTick(millisUntilFinished: Long) {
+                            if (debeFinalizar) {
+                                this.cancel()
+                            } else {
+                                estaContando = true
+                                val minutosRestantes = (millisUntilFinished / (60 * 1000)).toInt()
+                                val segundosRestantes = (millisUntilFinished / 1000).mod(60)
+                                tvMarcador.setText(
+                                    "${
+                                        String.format(
+                                            "%02d",
+                                            minutosRestantes
+                                        )
+                                    }:${String.format("%02d", segundosRestantes)}"
+                                )
+                            }
+                        }
 
-                    override fun onFinish() {
-                        tvMarcador.setText("00:00")
-                        tvDescanso.setTextColor(resources.getColor(R.color.black,null))
-                        tvDescanso.setBackgroundResource(R.drawable.estilo_tv_background_white)
-                        estaContando = false
-                    }
-                }.start()
+                        override fun onFinish() {
+                            if (debeFinalizar) {
+                                this.cancel()
+                            } else {
+                                tvMarcador.setText("00:00")
+                                tvDescanso.setTextColor(resources.getColor(R.color.black, null))
+                                tvDescanso.setBackgroundResource(R.drawable.estilo_tv_background_white)
+                                estaContando = false
+                            }
+                        }
+                    }.start()
+                }
             }
         }.start()
     }
