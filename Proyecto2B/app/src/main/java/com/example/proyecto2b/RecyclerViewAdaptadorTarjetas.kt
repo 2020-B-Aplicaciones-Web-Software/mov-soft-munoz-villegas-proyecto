@@ -116,6 +116,7 @@ class RecyclerViewAdaptadorTarjetas(
                 .setView(dialogoView)
             val tarjetaDialogo=builder.show()
             val botonAceptar=dialogoView.findViewById<Button>(R.id.btn_crearTajeta_dialogo)
+            botonAceptar.setText("Actualizar")
             val tituloTarjeta=dialogoView.findViewById<TextInputEditText>(R.id.til_nombre_tarjeta_dialogo)
             val descripcionTarjeta=dialogoView.findViewById<TextInputEditText>(R.id.til_descripcion_tarjeta_dialogo)
             dialogoView.findViewById<TextView>(R.id.tv_titulo_tarjeta_dialogo).text="Editar Tarjeta"
